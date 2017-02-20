@@ -13,7 +13,8 @@ class MenuController
     puts "2 - Create an entry"
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
-    puts "5 - Exit"
+    puts "5 - Demoloish"
+    puts "6 - Exit"
     print "Enter your selection: "
 
     selection = gets.to_i
@@ -36,6 +37,10 @@ class MenuController
         read_csv
         main_menu
       when 5
+        system "clear"
+        demolish
+        main_menu
+      when 6
         puts "Good-bye!"
         exit(0)
       else
@@ -182,4 +187,19 @@ class MenuController
     end
   end
 
+  def demolish
+    puts "Are you sure? Selecting Y will delete all entries. (Y/N)"
+    user_input = gets.chomp
+
+    if user_input == "Y"
+      address_book.entries.clear
+      system "clear"
+      puts "All entries have been deleted."
+    elsif user_input == "N"
+      system "clear"
+    else
+      puts "Please enter a valid response: (Y/N)"
+      demolish
+    end
+  end
 end
