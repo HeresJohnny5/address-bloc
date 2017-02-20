@@ -198,7 +198,7 @@ class MenuController
     elsif user_input == "N"
       system "clear"
     else
-      puts "Please enter a valid response: (Y/N)"
+      puts "Please enter a valid response. (Y/N)"
       demolish
     end
   end
